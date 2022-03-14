@@ -15,7 +15,7 @@ const wss = new Server({ server });
 wss.on('connection', (ws, req) => {
   console.log('Client connected: ', req.socket.remoteAddress);
   ws.send(`Client IP is: ${req.socket.remoteAddress}`);
-  ws.send(`Server Add is: ${wss.address()}`);
+  ws.send(`Server Address is: ${JSON.stringify(wss.address())}`);
   ws.on('close', () => console.log('Client disconnected'));
 });
 
