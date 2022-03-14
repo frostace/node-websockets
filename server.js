@@ -12,8 +12,8 @@ const server = express()
 
 const wss = new Server({ server });
 
-wss.on('connection', (ws) => {
-  console.log('Client connected');
+wss.on('connection', (ws, req) => {
+  console.log('Client connected: ', req.socket.remoteAddress);
   ws.on('close', () => console.log('Client disconnected'));
 });
 
